@@ -1,0 +1,13 @@
+CerQall Library License
+
+The CerQall library is dual-licensed under two different open source licenses.
+
+When the Qt library used (linked) together with this CerQall library is licensed
+under GNU Lesser General Public License version 3, this CerQall library is also made
+available to the user under the GNU Lesser General Public License version 3 license.
+See the LICENSE.LGPLv3 file for all license terms and conditions.
+
+When the Qt library used (linked) together with this CerQall library is licensed
+under the commercial Qt license, this CerQall library is made available to the user
+under the Apache License version 2.0. In this case no copyleft restrictions apply.
+See the LICENSE.APACHEv2 file for all license terms and conditions.
