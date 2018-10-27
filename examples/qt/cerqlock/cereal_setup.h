@@ -12,7 +12,6 @@
 #define CERCALL_CERQLOCK_CEREAL_SETUP_H
 
 #include "cercall/cereal/binary.h"
-#include "cercall/cereal/json.h"
 #include <cereal/types/polymorphic.hpp>
 #include <cereal/types/vector.hpp>
 #include <cereal/types/chrono.hpp>
@@ -26,6 +25,6 @@ CEREAL_REGISTER_TYPE(QlockTickEvent);
 CEREAL_REGISTER_POLYMORPHIC_RELATION(QlockEvent, QlockAlarmEvent);
 CEREAL_REGISTER_POLYMORPHIC_RELATION(QlockEvent, QlockTickEvent);
 
-using QlockSerialization = cercall::cereal::Json;
+using QlockSerialization = cercall::cereal::Binary;
 
 #endif //CERCALL_CERQLOCK_CEREAL_SETUP_H

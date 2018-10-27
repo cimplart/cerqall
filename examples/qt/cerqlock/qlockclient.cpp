@@ -24,7 +24,7 @@ using cercall::error;
 struct QlockListener : public QlockClient::ServiceListener
 {
     QlockListener(std::shared_ptr<QlockClient>& cc) : myClient(cc) {}
-    void on_service_event(std::shared_ptr<QlockClient::EventType>& event) override
+    void on_service_event(std::unique_ptr<QlockClient::EventType> event) override
     {
         const QlockAlarmEvent* clockEvent = event->get_as<QlockAlarmEvent>();
         if (clockEvent != nullptr) {

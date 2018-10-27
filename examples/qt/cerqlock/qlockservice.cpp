@@ -39,9 +39,7 @@ void QlockService::get_time(cercall::Closure<QTime> closure)
 
 void QlockService::tickTimer()
 {
-    QTime tickTime = QTime::currentTime();
-    std::shared_ptr<QlockTickEvent> ev = std::make_shared<QlockTickEvent>(tickTime);
-    broadcast_event(ev);
+    broadcast_event<QlockTickEvent>(QTime::currentTime());
 }
 
 void QlockService::set_tick_interval(std::chrono::milliseconds tickInterval, cercall::Closure<void> closure)
@@ -72,8 +70,7 @@ void QlockService::set_alarm(QString tag, QTime after, cercall::Closure<ClockAla
     Alarm& theAlarm = myAlarms.back();
     theAlarm.set_action([shared_this, &theAlarm](){
         log<debug>(O_LOG_TOKEN, "alarm timer for %s", theAlarm.myTag.toStdString().c_str());
-        std::shared_ptr<QlockAlarmEvent> ev = std::make_shared<QlockAlarmEvent>(theAlarm.myId, theAlarm.myTag);
-        shared_this->broadcast_event(ev);
+        shared_this->broadcast_event<QlockAlarmEvent>(theAlarm.myId, theAlarm.myTag);
         //Purge the alarm.
         auto it = shared_this->find_alarm(theAlarm.myId);
         assert(it != shared_this->myAlarms.end());

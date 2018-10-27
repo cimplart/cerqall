@@ -35,6 +35,8 @@ public:
     {
     }
 
+    //QEvent already has a virtual destructor.
+
     template<class DerivedEvent>
     const DerivedEvent* get_as() const
     {
@@ -46,8 +48,6 @@ public:
     {
         ar(t);
     }
-protected:
-
 };
 
 O_REGISTER_TYPE(QlockAlarmEvent);
